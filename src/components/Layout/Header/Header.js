@@ -20,8 +20,12 @@ function Header() {
             </Button>
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "block" } }}>
-            <Button sx={{ color: "white" }}>SIGN UP</Button>
-            <Button sx={{ color: "white" }}>SIGN IN</Button>
+            <Button sx={{ color: "white" }} href="/signup">
+              SIGN UP
+            </Button>
+            <Button sx={{ color: "white" }} href="/signin">
+              SIGN IN
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
