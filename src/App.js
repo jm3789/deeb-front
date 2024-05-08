@@ -4,11 +4,11 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 
 const App = () => {
-	return (
-		<Routes>
-			<Route index element={<Home />} />
-			<Route path="/search" element={<Search />} />
-		</Routes>
-	);
+  return (
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
+  );
 };
 export default App;
