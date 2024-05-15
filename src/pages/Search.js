@@ -30,6 +30,7 @@ const Search = () => {
           "X-Naver-Client-Secret": process.env.REACT_APP_CLIENT_SECRET,
         },
       });
+      console.log(res.data);
       setResults(res.data.items);
       setPage(1); // search가 끝나고 나면 페이지를 1로 리셋
     } catch (err) {
@@ -75,7 +76,7 @@ const Search = () => {
           {/* 검색 입력 부분 */}
           <div
             style={{
-              marginBottom: "20px",
+              margin: "30px",
               display: "flex",
               width: "100%",
             }}

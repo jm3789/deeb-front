@@ -14,7 +14,9 @@ function Header() {
             deeB
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            <Button sx={{ color: "white" }}>MY</Button>
+            <Button sx={{ color: "white" }} href="/my">
+              MY
+            </Button>
             <Button sx={{ color: "white" }}>RECOMMENDS</Button>
             <Button sx={{ color: "white" }} href="/search">
               SEARCH

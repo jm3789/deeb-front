@@ -10,18 +10,19 @@ import {
 import axios from "axios";
 
 const Signin = () => {
-  const [userId, setUserId] = useState("");
+  const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     try {
       const res = await axios.post("/signin", {
-        userId,
+        loginId,
         password,
       });
-      console.log(res.data);
+      alert(res.data);
     } catch (error) {
-      alert(error);
+      console.log(error.response);
+      alert(error.response.data);
     }
   };
   return (
@@ -40,7 +41,7 @@ const Signin = () => {
           label="아이디"
           fullWidth
           variant="outlined"
-          onChange={(e) => setUserId(e.target.value)}
+          onChange={(e) => setLoginId(e.target.value)}
         />
         <TextField
           label="비밀번호"

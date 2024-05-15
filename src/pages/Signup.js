@@ -10,9 +10,10 @@ import {
 import axios from "axios";
 
 const Signup = () => {
-  const [userId, setUserId] = useState("");
+  const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [nickname, setNickname] = useState("");
 
   const handleSubmit = async (e) => {
     if (password !== confirmPassword) {
@@ -21,12 +22,14 @@ const Signup = () => {
     }
     try {
       const res = await axios.post("/signup", {
-        userId,
+        loginId,
         password,
+        nickname,
       });
-      console.log(res.data);
+      alert(res.data);
     } catch (error) {
-      alert(error);
+      console.log(error.response);
+      alert(error.response.data);
     }
   };
   return (
@@ -45,19 +48,27 @@ const Signup = () => {
           label="아이디"
           fullWidth
           variant="outlined"
-          onChange={(e) => setUserId(e.target.value)}
+          onChange={(e) => setLoginId(e.target.value)}
         />
         <TextField
           label="비밀번호"
           fullWidth
           variant="outlined"
+          type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <TextField
           label="비밀번호 확인"
           fullWidth
           variant="outlined"
+          type="password"
           onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <TextField
+          label="닉네임"
+          fullWidth
+          variant="outlined"
+          onChange={(e) => setNickname(e.target.value)}
         />
         <Box height="1vh" />
         <Button variant="contained" fullWidth onClick={handleSubmit}>
