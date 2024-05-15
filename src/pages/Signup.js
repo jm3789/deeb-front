@@ -37,7 +37,9 @@ const Signup = () => {
         minHeight="100vh" // viewport의 높이
         spacing={2}
       >
-        <Typography variant="h4">회원가입</Typography>
+        <Typography variant="h4" fontWeight={"bold"}>
+          회원가입
+        </Typography>
         <Box height="2vh" />
         <TextField
           label="아이디"

@@ -1,6 +1,7 @@
 import Layout from "../components/Layout/Layout";
 import { useState } from "react";
 import axios from "axios";
+import "./pages.css";
 import {
   TextField,
   Button,
@@ -56,10 +57,13 @@ const Search = () => {
   return (
     <Layout>
       <div
-        style={{ display: "flex", flexDirection: "column", padding: "0 50px" }}
+        className="page_layer"
+        style={{ display: "flex", flexDirection: "column" }}
       >
         {/* head */}
-        <h1>책 검색</h1>
+        <Typography variant="h4" fontWeight={"bold"}>
+          책 검색
+        </Typography>
         {/* body: 중앙 정렬 */}
         <div
           style={{

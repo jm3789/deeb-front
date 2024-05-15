@@ -32,7 +32,9 @@ const Signin = () => {
         minHeight="100vh"
         spacing={2}
       >
-        <Typography variant="h4">로그인</Typography>
+        <Typography variant="h4" fontWeight={"bold"}>
+          로그인
+        </Typography>
         <Box height="2vh" />
         <TextField
           label="아이디"
