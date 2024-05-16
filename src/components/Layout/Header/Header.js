@@ -1,10 +1,9 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import axios from "axios";
+import { useEffect } from "react";
 
-const Header = (props) => {
-  const { isLoggedIn } = props;
+const Header = ({ isLoggedIn }) => {
   const handleLogout = async () => {
-    console.log(`islogin: ${isLoggedIn}`);
     try {
       const response = await axios.get("/logout");
       document.cookie =
@@ -16,6 +15,11 @@ const Header = (props) => {
       alert(error.response.data);
     }
   };
+
+  useEffect(() => {
+    console.log(`islogin: ${isLoggedIn}`);
+  });
+
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar component="nav">
@@ -38,10 +42,9 @@ const Header = (props) => {
             </Button>
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "block" } }}>
+            {/*
             {isLoggedIn ? (
-              <Button sx={{ color: "white" }} onClick={() => handleLogout()}>
-                로그아웃
-              </Button>
+              <Button sx={{ color: "white" }}>로그아웃</Button>
             ) : (
               <>
                 <Button sx={{ color: "white" }} href="/signup">
@@ -49,9 +52,18 @@ const Header = (props) => {
                 </Button>
                 <Button sx={{ color: "white" }} href="/signin">
                   SIGN IN
-                </Button>{" "}
+                </Button>
               </>
-            )}
+            */}
+            <Button sx={{ color: "white" }} href="/signup">
+              SIGN UP
+            </Button>
+            <Button sx={{ color: "white" }} href="/signin">
+              SIGN IN
+            </Button>
+            <Button sx={{ color: "white" }} onClick={handleLogout}>
+              SIGN OUT
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>

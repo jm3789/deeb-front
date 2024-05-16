@@ -15,42 +15,41 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
+    let logined = false;
     const checkSession = async () => {
+      const currentPath = window.location.pathname;
       try {
         const res = await axios.get("/userinfo");
         console.log(res["data"]["data"]);
-        if (res["data"]["data"]["userId"] != null) {
-          setIsLoggedIn(true);
+        if (res["data"]["data"] != null) {
+          logined = true;
           console.log(isLoggedIn);
+          if (currentPath === "/signup" || currentPath === "/signin") {
+            navigate("/my");
+            alert("이미 로그인된 상태입니다.");
+          }
         } else {
-          setIsLoggedIn(false);
+          logined = false;
           console.log(isLoggedIn);
+          if (
+            currentPath !== "/signup" &&
+            currentPath !== "/signin" &&
+            currentPath !== "/search" &&
+            currentPath !== "/"
+          ) {
+            navigate("/signin");
+            alert("로그인 후 이용 가능한 페이지입니다.");
+          }
         }
       } catch (error) {
         console.log(error.response);
       }
-
-      const currentPath = window.location.pathname;
-      if (!isLoggedIn) {
-        if (
-          currentPath !== "/signup" &&
-          currentPath !== "/signin" &&
-          currentPath !== "/search" &&
-          currentPath !== "/"
-        ) {
-          navigate("/signin");
-          alert("로그인 후 이용 가능한 페이지입니다.");
-        }
-      } else {
-        if (currentPath === "/signup" || currentPath === "/signin") {
-          navigate("/my");
-          alert("이미 로그인된 상태입니다.");
-        }
-      }
     };
-
-    checkSession();
-  }, [isLoggedIn, navigate]);
+    checkSession().then(() => {
+      console.log(logined);
+      setIsLoggedIn(logined);
+    });
+  });
 
   return (
     <>
