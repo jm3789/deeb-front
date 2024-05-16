@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# &#128218; 책 추천 서비스: 뒷북 (deep-book)
+## 프로젝트 설명
+'뒷북'에서는 내 독서록 중 서로 관련있는 독서록끼리 연결해서 볼 수 있고, 독서록을 추가해나갈 수 있습니다. <br/>
+타 유저들의 독서록(deep) 데이터를 기반으로 다음에 읽을 책을 추천받을 수 있습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+* 통합 개발 환경(IDE): Visual Studio Code
+* 주요 기술: React, Node.js, Express
+* 개발 언어: JavaScript, SQL
+* DBMS: MySQL
 
-In the project directory, you can run:
+## 설치 및 실행 방법
 
-### `npm start`
+&#9888; 두 개의 repo 모두 .env 파일이 없으면 일부 기능이 정상적으로 작동하지 않습니다! &#9888; <br/> 
+사용한 Node 버전: 18.17.1  <br/>
+터미널에서 아래의 절차를 따라 프로젝트를 설치하고 실행해주세요.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> 1. git clone https://github.com/jm3789/deeb-front.git deeb-front
+> 2. git clone https://github.com/jm3789/deeb-back.git deeb-back
+> 3. deeb-front 디렉토리로 이동
+> 4. npm install
+> 5. npm run build
+> 6. deeb-back 디렉토리로 이동
+> 7. node server.js
+> 8. http://localhost:8000/ 에 접속
