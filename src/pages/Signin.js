@@ -8,10 +8,12 @@ import {
   Box,
 } from "@mui/material";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     try {
@@ -19,7 +21,8 @@ const Signin = () => {
         loginId,
         password,
       });
-      alert(res.data);
+      navigate("/my");
+      // alert(res.data);
     } catch (error) {
       console.log(error.response);
       alert(error.response.data);
@@ -47,6 +50,7 @@ const Signin = () => {
           label="비밀번호"
           fullWidth
           variant="outlined"
+          type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <Box height="1vh" />

@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
@@ -7,18 +7,64 @@ import Search from "./pages/Search";
 import Mypage from "./pages/Mypage";
 import Deep from "./pages/Deep";
 import Addbook from "./pages/Addbook";
+import axios from "axios";
+import Header from "./components/Layout/Header/Header";
 
 const App = () => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const res = await axios.get("/userinfo");
+        console.log(res["data"]["data"]);
+        if (res["data"]["data"]["userId"] != null) {
+          setIsLoggedIn(true);
+          console.log(isLoggedIn);
+        } else {
+          setIsLoggedIn(false);
+          console.log(isLoggedIn);
+        }
+      } catch (error) {
+        console.log(error.response);
+      }
+
+      const currentPath = window.location.pathname;
+      if (!isLoggedIn) {
+        if (
+          currentPath !== "/signup" &&
+          currentPath !== "/signin" &&
+          currentPath !== "/search" &&
+          currentPath !== "/"
+        ) {
+          navigate("/signin");
+          alert("로그인 후 이용 가능한 페이지입니다.");
+        }
+      } else {
+        if (currentPath === "/signup" || currentPath === "/signin") {
+          navigate("/my");
+          alert("이미 로그인된 상태입니다.");
+        }
+      }
+    };
+
+    checkSession();
+  }, [isLoggedIn, navigate]);
+
   return (
-    <Routes>
-      <Route index element={<Home />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/signin" element={<Signin />} />
-      <Route path="/search" element={<Search />} />
-      <Route path="/my" element={<Mypage />} />
-      <Route path="/deep" element={<Deep />} />
-      <Route path="/addbook" element={<Addbook />} />
-    </Routes>
+    <>
+      <Header isLoggedIn={isLoggedIn} />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/my" element={<Mypage />} />
+        <Route path="/deep" element={<Deep />} />
+        <Route path="/addbook" element={<Addbook />} />
+      </Routes>
+    </>
   );
 };
 export default App;
