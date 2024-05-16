@@ -9,6 +9,7 @@ const Header = ({ isLoggedIn }) => {
       document.cookie =
         "session_cookie_name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       alert(response.data);
+      window.location.reload();
     } catch (error) {
       console.error("로그아웃 도중 에러 발생:", error);
       console.log(error.response);
@@ -42,10 +43,7 @@ const Header = ({ isLoggedIn }) => {
             </Button>
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "block" } }}>
-            {/*
-            {isLoggedIn ? (
-              <Button sx={{ color: "white" }}>로그아웃</Button>
-            ) : (
+            {isLoggedIn === false ? (
               <>
                 <Button sx={{ color: "white" }} href="/signup">
                   SIGN UP
@@ -54,16 +52,11 @@ const Header = ({ isLoggedIn }) => {
                   SIGN IN
                 </Button>
               </>
-            */}
-            <Button sx={{ color: "white" }} href="/signup">
-              SIGN UP
-            </Button>
-            <Button sx={{ color: "white" }} href="/signin">
-              SIGN IN
-            </Button>
-            <Button sx={{ color: "white" }} onClick={handleLogout}>
-              SIGN OUT
-            </Button>
+            ) : (
+              <Button sx={{ color: "white" }} onClick={() => handleLogout()}>
+                로그아웃
+              </Button>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
