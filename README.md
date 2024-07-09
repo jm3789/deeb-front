@@ -23,3 +23,7 @@
 > 6. deeb-back 디렉토리로 이동
 > 7. node server.js
 > 8. http://localhost:8000/ 에 접속
+
+## 기타
+&#127912; Figma <br/>
+https://www.figma.com/design/Bmm8DsHmIer94HYKIQVv76/%EC%B1%85-%EC%B6%94%EC%B2%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-deeB%3A-MUI-%EC%82%AC%EC%9A%A9-(Material-Design-Component-Figma-Library-For-React)-(Community)?node-id=630-921
